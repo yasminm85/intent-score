@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".MatchActivity">
 
+    <ImageView
+        android:id="@+id/home_logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher_round" />
     <TextView
         android:id="@+id/txt_home"
         android:layout_width="wrap_content"
@@ -15,25 +24,48 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/home_logo"/>
 
-    <ImageView
-        android:id="@+id/home_logo"
-        android:layout_width="100dp"
+    <Button
+        android:id="@+id/btn_add_home_1"
+        android:layout_width="110dp"
         android:layout_height="100dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Score Home 1"
         app:layout_constraintTop_toBottomOf="@+id/txt_home"
-        app:srcCompat="@mipmap/ic_launcher_round" />
+        app:layout_constraintStart_toStartOf="parent"
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintVertical_bias="0.052" />
 
+    <Button
+        android:id="@+id/btn_add_home_2"
+        android:layout_width="110dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="8dp"
+        android:text="Score Home 2"
+        app:layout_constraintStart_toEndOf="@+id/btn_add_home_1"
+        app:layout_constraintTop_toBottomOf="@+id/txt_home"
+
+        />
+
+    <Button
+        android:id="@+id/btn_add_home_3"
+        android:layout_width="110dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Score Home 3"
+        app:layout_constraintTop_toBottomOf="@+id/txt_home"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintVertical_bias="0.052" />
     <TextView
         android:id="@+id/score_home"
         android:layout_width="wrap_content"
@@ -42,19 +74,77 @@
         android:textSize="80sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/home_logo" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_add_home_2" />
+    <Button
+        android:id="@+id/btn_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cek Hasil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/score_home" />
+    <Button
+        android:id="@+id/btn_reset_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset Home"
+        app:layout_constraintTop_toBottomOf="@+id/score_home"
+        app:layout_constraintStart_toStartOf="parent" />
+    <Button
+        android:id="@+id/btn_reset_away"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset Away"
+        app:layout_constraintTop_toBottomOf="@+id/score_home"
+        app:layout_constraintEnd_toEndOf="parent" />
+    <TextView
+        android:id="@+id/score_away"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3"
+        android:textSize="80sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_result"/>
+    <Button
+        android:id="@+id/btn_add_away_1"
+        android:layout_width="110dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Score Away 1"
+        app:layout_constraintTop_toBottomOf="@+id/score_away"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintVertical_bias="0.052" />
 
     <Button
-        android:id="@+id/btn_add_home"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add Home Score"
-        android:layout_marginBottom="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        android:id="@+id/btn_add_away_2"
+        android:layout_width="110dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="8dp"
+        android:text="Score Away 2"
+        app:layout_constraintStart_toEndOf="@+id/btn_add_away_1"
+        app:layout_constraintTop_toBottomOf="@+id/score_away"
+
+        />
+
+    <Button
+        android:id="@+id/btn_add_away_3"
+        android:layout_width="110dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:text="Score Away 3"
+        app:layout_constraintTop_toBottomOf="@+id/score_away"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
-
+        />
     <TextView
         android:id="@+id/txt_away"
         android:layout_width="wrap_content"
@@ -65,46 +155,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
     <ImageView
         android:id="@+id/away_logo"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/txt_away"
+        app:layout_constraintTop_toBottomOf="@+id/txt_away"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@mipmap/ic_launcher" />
-
-    <TextView
-        android:id="@+id/score_away"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="3"
-        android:textSize="80sp"
-        app:layout_constraintBottom_toTopOf="@+id/away_logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btn_add_away"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Add Away Score"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline" />
-
-    <Button
-        android:id="@+id/btn_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cek Hasil"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

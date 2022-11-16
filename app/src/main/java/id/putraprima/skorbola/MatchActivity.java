@@ -13,8 +13,8 @@ import android.widget.Toast;
 
 public class MatchActivity extends AppCompatActivity {
     TextView textHome,textAway,scrHome,scrAway;
-    ImageView image;
-    Button home,away,result;
+    ImageView image,image2;
+    Button home1,home2,home3,away1,away2,away3,result,resetHome,resetAway;
     int count = 0;
     int count2=0;
     @Override
@@ -24,10 +24,23 @@ public class MatchActivity extends AppCompatActivity {
 
         textHome=findViewById(R.id.txt_home);
         textAway=findViewById(R.id.txt_away);
+
         image=findViewById(R.id.home_logo);
-        home=findViewById(R.id.btn_add_home);
-        away=findViewById(R.id.btn_add_away);
+        image2=findViewById(R.id.away_logo);
+
+        home1=findViewById(R.id.btn_add_home_1);
+        home2=findViewById(R.id.btn_add_home_2);
+        home3=findViewById(R.id.btn_add_home_3);
+
+        away1=findViewById(R.id.btn_add_away_1);
+        away2=findViewById(R.id.btn_add_away_2);
+        away3=findViewById(R.id.btn_add_away_3);
+
+        resetHome=findViewById(R.id.btn_reset_home);
+        resetAway=findViewById(R.id.btn_reset_away);
+
         result=findViewById(R.id.btn_result);
+
         scrHome=findViewById(R.id.score_home);
         scrAway=findViewById(R.id.score_away);
 
@@ -35,8 +48,9 @@ public class MatchActivity extends AppCompatActivity {
         textHome.setText(extras.getString("HOME_TEAM"));
         textAway.setText(extras.getString("AWAY_TEAM"));
         image.setImageURI(Uri.parse(extras.getString("KEY_IMAGE")));
+        image2.setImageURI(Uri.parse(extras.getString("KEY_IMAGE2")));
 
-        home.setOnClickListener(new View.OnClickListener() {
+        home1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 count++;
@@ -45,7 +59,34 @@ public class MatchActivity extends AppCompatActivity {
 
             }
         });
-        away.setOnClickListener(new View.OnClickListener() {
+        home2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                count+=2;
+                scrHome.setText(String.valueOf(count));
+
+
+            }
+        });
+        home3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                count+=3;
+                scrHome.setText(String.valueOf(count));
+
+
+            }
+        });
+        away1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                count2++;
+                scrAway.setText(String.valueOf(count2));
+
+
+            }
+        });
+        away2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 count2+=2;
@@ -54,19 +95,47 @@ public class MatchActivity extends AppCompatActivity {
 
             }
         });
+        away3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                count2+=3;
+                scrAway.setText(String.valueOf(count2));
+
+
+            }
+        });
+
+        resetHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrHome.setText("0");
+            }
+        });
+        resetAway.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrAway.setText("0");
+            }
+        });
         result.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 int hasil_home = Integer.parseInt(scrHome.getText().toString());
                 int hasil_away = Integer.parseInt(scrAway.getText().toString());
-
+                String home_win = textHome.getText().toString();
+                String away_win = textAway.getText().toString();
                 if(hasil_home>hasil_away){
-                    Toast.makeText(getApplicationContext(),"Home menang",Toast.LENGTH_LONG).show();
+                    Intent move = new Intent(MatchActivity.this, ResultActivity.class);
+
+                move.putExtra("HOME_WIN", home_win);
+                startActivity(move);
                 }else if(hasil_home==hasil_away){
                     Toast.makeText(getApplicationContext(),"Draw",Toast.LENGTH_LONG).show();
                 }else{
-                    Toast.makeText(getApplicationContext(),"Away menang",Toast.LENGTH_LONG).show();
+                    Intent move = new Intent(MatchActivity.this, ResultActivity.class);
+                    move.putExtra("AWAY_WIN", away_win);
+                    startActivity(move);
                 }
 
 //                Intent move = new Intent(MatchActivity.this, ResultActivity.class);
